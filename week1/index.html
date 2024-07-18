@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Alex Zayat">
+    <meta name="description" content="Week 1 Demo">
+
+    <title>W1 | Demo</title>
+</head>
+<body>
+    <!--the body holds ALL content for the page-->
+    <!--this is a coment in HTML-->
+
+    <!--heading tags are Block Level Elements(BLEs)-->
+    <!--BLEs create structure for page - they are literal blocks / rectangles;start on a new left hand aligned line-->
+    <h1 style ="border:1px solid pink;">Heading 1</h1> <!---ONE H1 per page; content supports SEO-->
+    <h2 style ="border:1px solid red;">Heading 2</h2>
+    <h3 style ="border:1px solid orangered;">Heading 3</h3>
+    <h4 style ="border:1px solid violet;">Heading 4</h4>
+    <h5 style ="border:1px solid blue;">Heading 5</h5>
+    <h6 style ="border:1px solid green;">Heading 6</h6>
+
+    <!--horizontal rule - self-closing; sits out a BLE line-->
+    <hr>
+
+    <!--LISTS! we have ordered(numbered) and unordered (bulleted)-->
+    <!--lists require: a tyoe of list AND list items-->
+
+    <h2>Favorite Dragons</h2>
+
+    <ol><!--ordered list type-->
+        <li>Dragon</li>
+        <li>Syrax</li>
+        <li>Moondancer</li>
+        <li>Vermithor</li>
+        <li>Cannibal</li>
+    </ol>
+
+    <h2>My Hobbies</h2>
+
+    <ul><!--unorered list type--->
+        <li>Gardening</li>
+        <li>Reading</li>
+        <li>Watching Stuff</li>
+        <li>Couch Goblin</li>
+    </ul>
+    <hr>
+
+    <h2>Paragraph Tahs - for body text content</h2>
+
+    <p>Hello World! 
+        
+        <br> <!--break space; creates a new line-->
+        
+        This is my first paragraph tag</p>
+
+        <hr>
+
+        <h2>Divs - divs (divisons/dividers) creates sections of content;they ONLY hold *other HTML elements* (never text content on its own)</h2>
+
+        <div style="border:1px solid grey; background-color: black; font-family:Helvetica; color: white;">
+            <h4>About Me</h4>
+
+            <p>Hi my name is <u>Alex</u> and I love <b>videogames</b> (and motorcycles)</p>
+
+            <!--IMAGES! are considered BOTH inline AND block level-->
+            <!--we will primarily use them as BLEs-->
+            <img src="https://egamersworld.com/_next/image?url=https%3A%2F%2Fegamersworld.com%2Fuploads%2Fblog%2F1696414021417.jpg&w=1920&q=75" alt ="Counter Strike 2" width="500">
+            <!--above is an example of an ABSOLUTe imath path[BOOOO]-->
+
+            <!--relative file paths are BEST! these live direction within the root folder-->
+            <img src="images/" alt ="Valorant the videogame"> 
+
+            <!--IMG requires 2 attributes:
+                *src > file path to image
+                *alt > alternative text; what is read on screenreaders, supports SEO, and appears if file path is broken
+            -->
+
+            <hr>
+        
+            <h2>Hypertext Links</h2>
+
+            <p>Hypertext links give us access to <a href="https://www.neit.edu">other pages</a>! They are known as the<i>anchor</i>tag.</p>
+
+
+    
+
+</body>
+</html>
