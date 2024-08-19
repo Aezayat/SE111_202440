@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--The type of font we are using-->
+    <meta charset="UTF-8">
+    <!--Tells the -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Alex Zayat">
+    <meta name="description" content="Default HTML Page for SE 111">
+    
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+    <title>Week 5 | Tables and Forms</title>
+
+</head>
+<body>
+    <!--Build your Table and Form here-->
+    <h1>Birthday Party Registration Form</h1>
+
+    <form action="confirm.html" method="GET">
+        <table>
+            <thead>
+                <tr>
+                    <th>Labels</th>
+                    <th>Form Fields</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label for="parent">Parent/Guardian Name</label></td>
+                    <td>
+                        <input type="text" name="gfirst" id="g-first" maxlength="20" placeholder="First Name" required><br>
+                        <input type="text" name="gfirst" id="g-last" maxlength="20" placeholder="Last Name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cfirst">Child's First Name</label></td>
+                    <td><input type="text" name="cfirst" id="c-first" maxlength="20" size="15" placeholder="Child's First Name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Child's Age</label></td>
+                    <td><input type="number" name="age" value="3" required></td>
+                </tr>
+                <tr>
+                    <td><label><b>Date and Time</b></label></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label for="date">Date</label></td>
+                    <td><input type="date" name="date" required></td>
+                </tr>
+                <tr>
+                    <td><label for="time">Start Time</label></td>
+                    <td><input type="time" name="time" required></td>
+                </tr>
+                <tr>
+                    <td><label for="guests">Number of Guests</label></td>
+                    <td><input type="number" name="guests" value="5"></td>
+                </tr>
+                <tr>
+                    <td><label><b>Food</b></label></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label for="size">Size</label></td>
+                    <td>
+                        <input type="radio" name="size" value="sm"> sm
+                        <input type="radio" name="size" value="md"> med
+                        <input type="radio" name="size" value="lg"> lg
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Drinks</label></td>
+                    <td>
+                        <input type="checkbox" name="drink1" value="coke" checked="true" required> <label for="drink1">Coke</label><br>
+                        <input type="checkbox" name="drink2" value="sprite" required> <label for="drink2">Sprite</label><br>
+                        <input type="checkbox" name="drink3" value="fruit punch" required> <label for="drink3">fruit punch</label><br>
+                        <input type="checkbox" name="drink4" value="lemonade" required> <label for="drink4">lemonade</label><br>
+                        <input type="checkbox" name="drink5" value="Iced Tea" required> <label for="drink5">Iced Tea</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cake">Cake</label></td>
+                    <td>
+                        <select name="cake">
+                            <option selected="selected">Chocolate</option>
+                            <option>Vanilla</option>
+                            <option>Bring my own</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label><B>Decorations</B></label></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label for="colors">Color Scheme</label></td>
+                    <td><input type="color" name="colors"></td>
+                </tr>
+                <tr>
+                    <td><label for="comments">Additional Comments</label></td>
+                    <td><textarea name="comments" placeholder="Please add any additional comments here"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="submit">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
