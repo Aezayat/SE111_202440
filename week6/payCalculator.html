@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Alex Zayat">
+    <meta name="description" content="Week 6 JS Pay Calculator">
+    
+    <title>Week 6 | JS Pay Calculator</title>
+
+</head>
+
+
+<script>
+
+   // Gather hourly pay and hours worked for two-week period
+    let hourlyPay = Number(prompt("Enter your hourly pay:"));
+    let hoursWorked = Number(prompt("Enter the total hours worked over two weeks:"));
+
+    // Calculate Gross Pay
+    let grossPay = hourlyPay * hoursWorked;
+
+    // Calculate Uncle Sam's Share (tax amount)
+    let taxRate = 0.20;
+    let taxAmount = grossPay * taxRate;
+
+    // Calculate Net Pay
+    let netPay = grossPay - taxAmount;
+
+    // Display the results
+    alert(`Gross Pay: $${grossPay.toFixed(2)}\nUncle Sam's Share: $${taxAmount.toFixed(2)}\nNet Pay: $${netPay.toFixed(2)}`);
+
+    console.log(`Gross Pay: $${grossPay.toFixed(2)}`);
+    console.log(`Uncle Sam's Share: $${taxAmount.toFixed(2)}`);
+    console.log(`Net Pay: $${netPay.toFixed(2)}`);
+    
+</script>
