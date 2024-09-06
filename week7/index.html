@@ -3,212 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W7D2 | Javascript Demo</title>
+    <meta name="author" content="Alex Zayat">
+    <meta name="description" content="Week 7 Assignment practicing Javascript & HTML">
+    <title>Week 7 | Pay Form Calculator Assignment</title>
 </head>
 <body>
 
-    <h1>W7D2 - Javascript Selector & Event Demo</h1>
+    <h1>Pay Calculator Form</h1>
 
     <form>
+        <label for="first">First Name: </label>
+        <input type="text" id="first">
 
-        <table>
+        <br>
 
-            <tr>
-                <!--left side: questions-->
-                <td>
-                    <label for="first" class="questions">FIRST: </label>
-                </td>
+        <label for="last">Last Name: </label>
+        <input type="text" id="last">
 
-                <!--right side: input values-->
-                <td>
-                    <input type="text" name="first" id="first">
+        <br>
 
-                </td>
-            </tr>
+        <label for="hours">Hours Worked: </label>
+        <input type="text" id="hours">
 
-            <tr>
-                <!--left side: questions-->
-                <td>
-                    <label for="last" class="questions">LAST: </label>
-                </td>
+        <br>
 
-                <!--right side: input values-->
-                <td>
-                    <input type="text" name="last" id="last">
+        <label for="rate">Hourly Rate: </label>
+        <input type="text" id="rate">
 
-                </td>
-            </tr>
+        <br><br>
 
-            <tr>
-                <!--left side: questions-->
-                <td>
-                    <label for="age" class="questions">AGE: </label>
-                </td>
+        <input type="button" id="enter-button" value="Enter">
 
-                <!--right side: input values-->
-                <td>
-                    <input type="text" name="age" id="age">
+        <br><br>
 
-                </td>
-            </tr>
+        <div id="final" style="border:1px solid rgb(87, 86, 86); padding:15px; background-color:rgb(168, 168, 168);">
+            <h3>Employee Info: </h3>
+            <p id="info" style="font-family:Courier New, monospace;"><i>Information will be loaded once above form is filled.</i></p>
+            <p id="check" style="font-family:Courier New, monospace; width:220px; text-align:right;"></p>
+        </div>
 
-            
-            <tr>
-                <!--left side: questions-->
-                
-                <td>
-                    <br>
-                    <br>
-                   <input type="button" id="enter-button" value="ENTER">
-                </td>
+        <br><br>
 
-                <!--right side: input values-->
-                <td>
-                    
-
-                </td>
-            </tr>
-
-        </table>
-
+        <h3><i>If the above information is correct, please press "SUBMIT"</i></h3>
+        <input type="button" id="submit" value="SUBMIT">
     </form>
 
-    <br>
-    <br>
-
-    <!--a div to hold some info from the form-->
-
-    <h2 id="hello">Hello</h2>
-
-    <div id="info" style="border:1px solid black; width:500px; height:200px;">
-    
-    </div><!--# info-->
-
-    <br>
-    <br>
-    <br>
-
-    <!--not just buttons can have click events!-->
-
-    <p id="me">
-        Click!
-    </p>
-
-    <p id="you">
-        Click!
-    </p>
-
-    <input type="button" id="submit" value="COOL STUFF!">
-
-    <br><br><br><br><br>
-    <p>end</p>
-    <!--IN-DOCUMENT JAVASCRIPT BELOW-->
     <script>
-        //we write JS in here
+        document.querySelector('#enter-button').addEventListener('click', alertName);
 
-        //select elements from the HTML document --> 'document' current HTML file
-        //global variable: accessible everywhere after its creation
-        var body = document.querySelctor('body')
+        function alertName(e) {
+            var fname = document.getElementById('first').value;
+            var lname = document.getElementById('last').value;
+            var hours = Number(document.getElementById('hours').value);
+            var rate = Number(document.getElementById('rate').value);
 
-        console.log(body)
+            console.log(fname);
+            console.log(lname);
+            console.log(hours);
+            console.log(rate);
 
-        //create a new variable to hold the new HTML element
-        var newP = ``
-        mewP += '<p>' //newP = newP + '<p>'
-        newP += 'hello world! this content was added to the page with <i>Javascript!</i>'
-        newP += '</p>'
+            var full = fname + " " + lname;
+            console.log(full);
 
-        console.log(newP)
+            var gross = hours * rate;
+            var taxAmount = gross * 0.2;
+            var net = gross - taxAmount;
 
-        // add the new HTML element to the page - this will add to the END of the BODY
-        body.innerHTML += newP 
-        //body.style.color = 'blue'
+            console.log(gross.toFixed(2));
+            console.log(taxAmount.toFixed(2));
+            console.log(net.toFixed(2));
 
-        //set up an actionable event so that when a button is clicked, info is written to the page(#info)
-        //FIRST: add event listener for event to the element
-        //adding an event listener to the #enter-button at the end of the mini form
-        document.querySelector(`#enter-button`).addEventListener(`click`, alertInfo)
-        //^^,addEventListener(EVENT TYPE, FUNCTION THAT RUNS ONCE EVENT)
+            var finalMessage = `${full}<br>Hours Worked: ${hours.toFixed(2)}<br>Hourly Rate: $${rate.toFixed(2)}`;
 
-        //event based funcitons must include the event parameter (e/ev/event)
-        //alertInfo() definition below
-        function alertInfo(event)
-        {
-            //local vars: their value only exists INSIDE of the funciton; they are only accesible {in here}
-            //the local vars below will hold the VALUES from the mini form
+            var info = document.getElementById('info');
+            var check = document.getElementById('check');
 
-            var fname = document.querySelector('#first').value
-            var lname = document.querySelector('#last').value
-            var age = Number(document.querySelector('#age').value) //cant do math with strings!
-            console.log{fname, lname, age}
+            info.innerHTML = finalMessage;
+            check.innerHTML = `Gross Pay: $${gross.toFixed(2)}<br>Tax Amount: $${taxAmount.toFixed(2)}<br>Net Pay: $${net.toFixed(2)}`;
 
-            //basic control flow for an age alert
-            if (age >= 18)
-            {
-                alert('You ARE old enough to vote!')
+            document.querySelector('#submit').addEventListener('click', submitNow);
+
+            function submitNow(e) {
+                alert(`${full}\nHOURS: ${hours}\nRATE: $${rate.toFixed(2)}\n\nGROSS PAY: $${gross.toFixed(2)}\nTAX AMOUNT: $${taxAmount.toFixed(2)}\nNET PAY: $${net.toFixed(2)}`);
             }
-            else
-            {
-                alert('You ARE NOT old enough to vote!')
-            }
-
-            //select the #hello element and store it; then add the user's name to the hello message
-            var hello = document.querySelector('#hello')
-            hello.innerHTML += ` ${fname} !`
-
-            //document.querySelector('#hello').innerHTML += ` ${fname} !`
-
-            //store the #info div to a variable
-            var info = document.querySelector(`#info`)
-
-            //calculate dog years
-            var dog_age = (age * 7).toFixed(1) //stores value as rounded; will change value if more than 1 decimal place
-            
-
-            //test values in console
-            console.log(`YOUR AGE: ${age}: human years; ${dog_age} dog years`)
-
-            //add the age messages to the #info div as content in the HTML page
-            info.innterHTMl += `<p><b>YOUR AGE: ${age}: human years; <br> <b>DOG AGE:</b> ${dog_age} dog years</p>`
-
-            //add dog_age to global body
-            body.innterHTML += `<br><p>You are ${dog_age} years!</p>`
-
-        }//alertInfo() CLOSE
-
-        //global variables: the ones declared below will only be accessible to the funcitons AFTER declared
-        var me = document.querySelector(`#me`)
-        var you = document.querySelector(`#you`)
-
-        //add event listeners to non-button items - all elements are fair game
-        me.addEventListener(`click`, clicked)
-        you.addEventListener(`click`, clickedGreen)
-
-        function clicked(event)
-        {
-            console.log(`clicked() reached!`)
-            me.style.color = `red`
-            me.style.fontSize = `40px`
-
         }
-
-        function clickedGreen(event)
-        {
-            console.log(`clickedGreen() reached!`)
-            you.style.color = `green`
-            you.style.fontSize = `40px`
-        }
-
-        var button = document.querySelector(`#submit`)
-
-        //demoing an anonymous function (function without a name; immediately defined)
-        button.addEventListener(`click`, function(event){
-            console.log(event)
-        })
-
-
-
-	</script>
-	
+    </script>
+    
 </body>
 </html>
