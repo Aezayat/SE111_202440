@@ -11,18 +11,44 @@
 <body>
 </body>
 
-<script type="text/javascript">
-	//Use this Array of objects to complete the assignment.
-	var people =[
-		{first:"Jason", last:"Vorhees", credit:"Friday the 13th"},
-		{first:"Freddy", last:"Krueger", credit:"A Nightmare on Elm Street" },
-		{first:"Roger", last:"Rabbit", credit:"Who Framed Roger Rabbit" },
-		{first:"Kevin", last:"McCallister", credit:"Home Alone" },
-		{first:"Godzilla", last:"King of The Monsters", credit:"Godzilla" },
-		{first:"Buzz", last:"Lightyear", credit:"Toy Story" },
-		{first:"Marion", last:"Cobretti", credit:"Cobra" }
-	]
-	
-</script>
+<script>
+	var people = [
+		{ first: "Jason", last: "Voorhees", credit: "Friday the 13th" },
+		{ first: "Freddy", last: "Krueger", credit: "A Nightmare on Elm Street" },
+		{ first: "Roger", last: "Rabbit", credit: "Who Framed Roger Rabbit" },
+		{ first: "Kevin", last: "McCallister", credit: "Home Alone" },
+		{ first: "Godzilla", last: "King of The Monsters", credit: "Godzilla" },
+		{ first: "Buzz", last: "Lightyear", credit: "Toy Story" },
+		{ first: "Marion", last: "Cobretti", credit: "Cobra" }
+	];
 
+	// Select the main element of the document to be able to add to it later
+	var body = document.querySelector('body');
+
+	// Start with a standard for loop
+	for (let i = 0; i < people.length; i++) {
+		// For every object stored to the array, add a div to the body element to hold object's info (values)
+		var tempDiv = document.createElement('div');
+
+		// Add an id and class attribute to the new div element
+		tempDiv.setAttribute('id', people[i].first);
+		tempDiv.setAttribute('class', 'border');
+
+		// For every property of the object --> for key in object loop
+		for (key in people[i]) {
+			// Create the element to hold the property value
+			var p = document.createElement('p');
+			// Create the text node to add to the paragraph tag
+			var text = document.createTextNode(people[i][key]);
+			// Attach the text (append) to the paragraph element
+			p.appendChild(text);
+			// Add the paragraph element to the div
+			tempDiv.appendChild(p);
+		}
+
+		// Add the tempDiv back to the body element
+		body.appendChild(tempDiv);
+	}
+</script>
+</body>
 </html>
